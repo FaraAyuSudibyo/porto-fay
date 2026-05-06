@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fara Ayu Sudibyo — Tentang</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+#about { background: white; padding-top: 130px; }
+
+
+.about-img-col { position: relative; }
+.about-img-wrap {
+  border-radius: 12px; overflow: hidden; aspect-ratio: 3/4;
+  position: relative;
+}
+.about-img-wrap::after {
+  content: '';
+  position: absolute; bottom: -10px; right: -10px;
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  background: var(--rose-pale);
+  z-index: -1;
+}
+.about-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.about-badge {
+  display: inline-block; margin-top: 20px;
+  background: var(--rose); color: white;
+  padding: 10px 20px; border-radius: 10px; font-size: 0.82rem; font-weight: 600;
+  box-shadow: 0 4px 20px rgba(193,29,57,0.3);
+}
+
+.about-content p { font-size: 0.98rem; line-height: 1.95; color: var(--ink-3); margin-bottom: 18px; }
+.about-content strong { color: var(--ink-2); font-weight: 600; }
+
+.traits { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 40px; }
+.trait {
+  padding: 8px 18px; background: var(--rose-pale);
+  color: var(--rose); border: 1px solid var(--rose-3);
+  border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+}
+
+.edu-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 18px;
+}
+.edu-list { display: flex; flex-direction: column; }
+.edu-item { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--cream-2); }
+.edu-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 5px; }
+.edu-dot { width: 11px; height: 11px; background: var(--rose); border-radius: 50%; box-shadow: 0 0 0 4px var(--rose-pale); flex-shrink: 0; }
+.edu-line { width: 1px; flex: 1; background: var(--border); margin-top: 8px; }
+.edu-item:last-child .edu-line { display: none; }
+.edu-body h4 { font-size: 0.97rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.edu-body p { font-size: 0.82rem; color: var(--ink-3); }
+.edu-year { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--rose); font-weight: 700; margin-top: 5px; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img-col { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">FAS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="profil.html">Tentang</a></li>
+    <li><a href="skills.html">Skill</a></li>
+    <li><a href="portofolio.html">Proyek</a></li>
+    <li><a href="sertifikat.html">Sertifikat</a></li>
+    <li><a href="contact.html">Kontak</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="profil.html" onclick="closeMenu()">Tentang</a>
+  <a href="skills.html" onclick="closeMenu()">Skill</a>
+  <a href="portofolio.html" onclick="closeMenu()">Proyek</a>
+  <a href="sertifikat.html" onclick="closeMenu()">Sertifikat</a>
+  <a href="contact.html" onclick="closeMenu()">Kontak</a>
+</div>
+
+<section id="about">
+  <div class="sec-eyebrow reveal">Tentang Saya</div>
+  <h2 class="sec-heading reveal">Kenalan, Yuk!</h2>
+
+  <div class="about-grid">
+
+    <div class="about-content reveal" style="transition-delay:0.1s">
+      <p>Hai! Saya <strong> Fara Ayu Sudibyo </strong>, siswa jurusan <Strong>Pengembangan Perangkat Lunak</Strong> di SMK Wikrama Bogor. Sejak SMP hingga SMK, saya aktif dalam organisasi dan pernah dipercaya sebagai Ketua OSIS serta Ketua Pramuka. Pengalaman tersebut membentuk saya menjadi pribadi yang disiplin, bertanggung jawab, serta memiliki jiwa kepemimpinan.</p>
+      <p>Selain itu, saya terbiasa bekerja sama dalam tim, memiliki kemampuan komunikasi yang baik, dan mampu beradaptasi dengan berbagai situasi. Saya juga memiliki semangat belajar yang tinggi dan terus mengembangkan kemampuan di bidang teknologi, khususnya pemrograman dan pengembangan perangkat lunak.</p>
+
+
+      <h3 class="edu-title">Riwayat Pendidikan</h3>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+          <div class="edu-body">
+            <h4>SDN Megamendung 01</h4>
+            <p>Sekolah Dasar · Megamendung, Kab. Bogor</p>
+            <div class="edu-year">2015 – 2021</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+          <div class="edu-body">
+            <h4>SMPN 1 Cisarua</h4>
+            <p>Sekolah Menengah Pertama · Cisarua, Kab. Bogor</p>
+            <div class="edu-year">2021 – 2024</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+          <div class="edu-body">
+            <h4>SMK Wikrama Bogor</h4>
+            <p>Pengembangan Perangkat Lunak dan Gim (PPLG)</p>
+            <div class="edu-year">2024 – Sekarang</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FAS.</div>
+  <p>© 2026 Fara Ayu Sudibyo · Bogor, Indonesia</p>
+  <div class="footer-links">
+    <a href="profil.html">Tentang</a>
+    <a href="portofolio.html">Proyek</a>
+    <a href="contact.html">Kontak</a>
+    <a href="https://github.com/farasudibyo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fara Ayu Sudibyo — Proyek</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+#portfolio { padding-top: 130px; background: white; }
+
+.github-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--ink); color: white;
+  padding: 12px 26px; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; margin-bottom: 48px; transition: all 0.3s;
+}
+.github-cta:hover { background: var(--rose); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(193,29,57,0.35); }
+
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.proj-card {
+  background: white; border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--border); transition: all 0.35s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-color: var(--rose-3); }
+
+.proj-thumb {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: var(--rose-pale);
+}
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s;
+}
+.proj-card:hover .proj-thumb img { transform: scale(1.05); }
+
+.proj-body {
+  padding: 24px;
+  display: flex; flex-direction: column; flex: 1;
+}
+.proj-body h3 {
+  font-family: 'Cormorant Garamond', serif; /* tambahkan ini */
+  font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+}
+.proj-body p {
+  font-size: 0.85rem; line-height: 1.7; color: var(--ink-3); margin-bottom: 14px;
+}
+
+.tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tech-pill {
+  font-size: 0.75rem; font-weight: 500;
+  padding: 5px 14px;
+  background: var(--cream);
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+}
+
+.proj-links { display: flex; gap: 9px; margin-top: auto; }
+.pl {
+  flex: 1; text-align: center; padding: 9px 12px; border-radius: 10px;
+  font-size: 0.78rem; font-weight: 600; text-decoration: none;
+  transition: all 0.25s; display: block;
+}
+.pl-gh { background: var(--ink); color: white; }
+.pl-gh:hover { background: var(--rose); }
+.pl-dm { background: var(--rose-pale); color: var(--rose); border: 1px solid var(--rose-3); }
+.pl-dm:hover { background: var(--rose); color: white; }
+
+@media (max-width: 1100px) { .projects-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">FAS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="profil.html">Tentang</a></li>
+    <li><a href="skills.html">Skill</a></li>
+    <li><a href="portofolio.html">Proyek</a></li>
+    <li><a href="sertifikat.html">Sertifikat</a></li>
+    <li><a href="contact.html">Kontak</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="profil.html" onclick="closeMenu()">Tentang</a>
+  <a href="skills.html" onclick="closeMenu()">Skill</a>
+  <a href="portofolio.html" onclick="closeMenu()">Proyek</a>
+  <a href="sertifikat.html" onclick="closeMenu()">Sertifikat</a>
+  <a href="contact.html" onclick="closeMenu()">Kontak</a>
+</div>
+
+<section id="portfolio">
+  <div class="sec-eyebrow reveal">Karya Saya</div>
+  <h2 class="sec-heading reveal">Proyek Pilihan</h2>
+
+  <a href="https://github.com/FaraAyuSudibyo" target="_blank" class="github-cta reveal">
+    <i class="fa-brands fa-github"></i>
+    github.com/FaraAyuSudibyo
+  </a>
+
+  <div class="projects-grid">
+
+    <div class="proj-card reveal" style="transition-delay:0s">
+      <div class="proj-thumb">
+        <img src="images/buku.png" alt="Personal Portfolio" />
+      </div>
+      <div class="proj-body">
+        <h3>BOOK Website</h3>
+        <p>Website penjualan buku berbasis React.</p>
+        <div class="tech-row">
+          <span class="tech-pill">React</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/book_react.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.08s">
+      <div class="proj-thumb">
+        <img src="images/figma2.png" alt="Perpustaka Digital" />
+      </div>
+      <div class="proj-body">
+        <h3>Perpustaka Digital</h3>
+        <p>Perpustaka sekolah digital dengan look modern.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Figma</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://www.figma.com/design/BLhqUTYvhGPyc6g2o9Cyhe/perpus?node-id=0-1&t=MZ8vOlE05fpRBtEZ-1" target="_blank" class="pl pl-gh">Figma</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.16s">
+      <div class="proj-thumb">
+        <img src="images/gaji.png" alt="Penggajian" />
+      </div>
+      <div class="proj-body">
+        <h3>Penggajian</h3>
+        <p>Website gaji karyawan lebih teratur.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Laravel</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/PENGGAJIAN.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.24s">
+      <div class="proj-thumb">
+        <img src="images/figma1.png" alt="UI Website Pemesanan Makanan" />
+      </div>
+      <div class="proj-body">
+        <h3>UI Website</h3>
+        <p>Desain UI Website Pemesanan Makanan menggunakan Figma.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Figma</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://www.figma.com/design/xM8px6GWxVkhxCpNpwPSFA/Untitled?node-id=0-1&t=5j7cyTuDJXWKlyXO-1" target="_blank" class="pl pl-gh">Figma</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.32s">
+      <div class="proj-thumb">
+        <img src="images/tixid.png" alt="Blog Pribadi" />
+      </div>
+      <div class="proj-body">
+        <h3>TIXID</h3>
+        <p>Pemesanan tiket bioskop online.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Laravel</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/TIXID.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.40s">
+      <div class="proj-thumb">
+        <img src="images/platzi.png" alt="Game Quiz Interaktif" />
+      </div>
+      <div class="proj-body">
+        <h3>Platzi Fake Store</h3>
+        <p>Eccomerce dibuat menggunakn react.</p>
+        <div class="tech-row">
+          <span class="tech-pill">React</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/platzi.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.40s">
+      <div class="proj-thumb">
+        <img src="images/profil_flut.png" alt="Game Quiz Interaktif" />
+      </div>
+      <div class="proj-body">
+        <h3>Profile Flutter</h3>
+        <p>Profile pribadi menggunakan flutter.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Flutter</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/profile-flutter.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.40s">
+      <div class="proj-thumb">
+        <img src="images/court booking.png" alt="Game Quiz Interaktif" />
+      </div>
+      <div class="proj-body">
+        <h3>Court Booking</h3>
+        <p>Pemesanan Lapangan secara online.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Flutter</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/court_booking.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FAS.</div>
+  <p>© 2026 Fara Ayu Sudibyo · Bogor, Indonesia</p>
+  <div class="footer-links">
+    <a href="profil.html">Tentang</a>
+    <a href="portofolio.html">Proyek</a>
+    <a href="contact.html">Kontak</a>
+    <a href="https://github.com/farasudibyo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

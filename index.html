@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fara Ayu Sudibyo — Home</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 80px;
+  padding: 120px 80px 80px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--rose); margin-bottom: 20px;
+  animation: fadeUp 0.6s 0.1s both;
+}
+.hero-tag::before {
+  content: ''; width: 28px; height: 1px; background: var(--rose-3);
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -1.5px;
+  color: var(--ink); margin-bottom: 20px;
+  animation: fadeUp 0.6s 0.2s both;
+}
+.hero-name em { color: var(--rose); font-style: italic; }
+.hero-desc {
+  font-size: 0.97rem; line-height: 1.85; color: var(--ink-3);
+  max-width: 440px; margin-bottom: 36px;
+  animation: fadeUp 0.6s 0.3s both;
+}
+.hero-desc strong { color: var(--ink-2); font-weight: 600; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s both; }
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 48px;
+  padding-top: 36px; border-top: 1px solid var(--border);
+  animation: fadeUp 0.6s 0.5s both;
+}
+.stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 700; color: var(--rose); line-height: 1;
+}
+.stat-key { font-size: 0.72rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+/* ── HERO PHOTO ── */
+.hero-right {
+  display: flex; justify-content: center; align-items: center;
+  animation: fadeUp 0.6s 0.2s both;
+}
+.hero-photo-frame {
+  position: relative; width: 320px; height: 420px; /* oval vertikal */
+}
+.hero-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  border-radius: 50%; /* ← ini yang bikin oval */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.hero-photo-frame::before {
+  content: '';
+  position: absolute; bottom: -12px; right: -12px;
+  width: 100%; height: 100%;
+  border-radius: 50%; /* ← samain sama foto */
+  background: var(--rose-pale);
+  z-index: -1;
+}
+
+@media (max-width: 900px) {
+  #home { grid-template-columns: 1fr; text-align: center; padding: 110px 28px 60px; gap: 48px; }
+  .hero-right { display: none; }
+  .hero-stats { justify-content: center; }
+  .hero-btns { justify-content: center; }
+  .hero-desc { margin: 0 auto 36px; }
+  .hero-tag { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">FAS</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="profil.html">Tentang</a></li>
+    <li><a href="skills.html">Skill</a></li>
+    <li><a href="portofolio.html">Proyek</a></li>
+    <li><a href="sertifikat.html">Sertifikat</a></li>
+    <li><a href="contact.html">Kontak</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="profil.html" onclick="closeMenu()">Tentang</a>
+  <a href="skills.html" onclick="closeMenu()">Skill</a>
+  <a href="portofolio.html" onclick="closeMenu()">Proyek</a>
+  <a href="sertifikat.html" onclick="closeMenu()">Sertifikat</a>
+  <a href="contact.html" onclick="closeMenu()">Kontak</a>
+</div>
+
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-tag">Open to Opportunities</div>
+    <h1 class="hero-name">Fara <em>Ayu</em><br>Sudibyo</h1>
+    <p class="hero-desc">
+      Saya merupakan siswa <strong>Software Developer</strong> di SMK Wikrama Bogor yang memiliki minat besar di bidang teknologi informasi. Saya senang mempelajari cara kerja aplikasi serta proses pembuatan sistem digital. 
+    </p>
+      <a href="portofolio.html" class="btn-solid">Lihat Proyek</a>
+      <a href="contact.html" class="btn-ghost">Hubungi Saya</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-frame">
+      <img src="images/fara (2).png" alt="Fara Ayu Sudibyo" class="hero-photo">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FAS.</div>
+  <p>© 2026 Fara Ayu Sudibyo · Bogor, Indonesia</p>
+  <div class="footer-links">
+    <a href="profil.html">Tentang</a>
+    <a href="portofolio.html">Proyek</a>
+    <a href="contact.html">Kontak</a>
+    <a href="https://github.com/farasudibyo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
