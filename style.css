@@ -153,10 +153,10 @@ footer {
   display: flex; align-items: center; justify-content: space-between;
 }
 .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--rose-3); }
-footer p { font-size: 0.8rem; color: #5a3545; }
+footer p { font-size: 0.8rem; color: #c9a0aa; }
 .footer-links { display: flex; gap: 22px; }
-.footer-links a { font-size: 0.8rem; color: #5a3545; text-decoration: none; transition: color 0.25s; }
-.footer-links a:hover { color: var(--rose-3); }
+.footer-links a { font-size: 0.8rem; color: #c9a0aa; text-decoration: none; transition: color 0.25s; }
+.footer-links a:hover { color: white; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {

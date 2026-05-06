@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Fara Ayu Sudibyo — Home</title>
+<title>Fara Ayu Sudibyo — Portfolio</title>
 <link rel="stylesheet" href="style.css" />
 <style>
-/* ── HERO ── */
+
+/* ── HOME ── */
 #home {
   min-height: 100vh;
   display: grid; grid-template-columns: 1fr 1fr;
@@ -19,9 +20,7 @@
   color: var(--rose); margin-bottom: 20px;
   animation: fadeUp 0.6s 0.1s both;
 }
-.hero-tag::before {
-  content: ''; width: 28px; height: 1px; background: var(--rose-3);
-}
+.hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--rose-3); }
 .hero-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(3rem, 5.5vw, 5rem);
@@ -37,82 +36,215 @@
 }
 .hero-desc strong { color: var(--ink-2); font-weight: 600; }
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s both; }
-.hero-stats {
-  display: flex; gap: 40px; margin-top: 48px;
-  padding-top: 36px; border-top: 1px solid var(--border);
-  animation: fadeUp 0.6s 0.5s both;
-}
-.stat-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.4rem; font-weight: 700; color: var(--rose); line-height: 1;
-}
-.stat-key { font-size: 0.72rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
-
-/* ── HERO PHOTO ── */
 .hero-right {
   display: flex; justify-content: center; align-items: center;
   animation: fadeUp 0.6s 0.2s both;
 }
-.hero-photo-frame {
-  position: relative; width: 320px; height: 420px; /* oval vertikal */
-}
+.hero-photo-frame { position: relative; width: 320px; height: 420px; }
 .hero-photo {
   width: 100%; height: 100%;
   object-fit: cover; object-position: top center;
-  border-radius: 50%; /* ← ini yang bikin oval */
+  border-radius: 50%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 .hero-photo-frame::before {
   content: '';
   position: absolute; bottom: -12px; right: -12px;
   width: 100%; height: 100%;
-  border-radius: 50%; /* ← samain sama foto */
+  border-radius: 50%;
   background: var(--rose-pale);
   z-index: -1;
 }
 
+/* ── ABOUT ── */
+#about { background: white; }
+.about-content p { font-size: 0.98rem; line-height: 1.95; color: var(--ink-3); margin-bottom: 18px; }
+.about-content strong { color: var(--ink-2); font-weight: 600; }
+.edu-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 18px; margin-top: 32px;
+}
+.edu-list { display: flex; flex-direction: column; }
+.edu-item { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--cream-2); }
+.edu-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 5px; }
+.edu-dot { width: 11px; height: 11px; background: var(--rose); border-radius: 50%; box-shadow: 0 0 0 4px var(--rose-pale); flex-shrink: 0; }
+.edu-line { width: 1px; flex: 1; background: var(--border); margin-top: 8px; }
+.edu-item:last-child .edu-line { display: none; }
+.edu-body h4 { font-size: 0.97rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.edu-body p { font-size: 0.82rem; color: var(--ink-3); }
+.edu-year { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--rose); font-weight: 700; margin-top: 5px; }
+
+/* ── SKILLS ── */
+#skills { background: var(--cream); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.skill-card {
+  background: white; border-radius: 22px; padding: 30px 26px;
+  border: 1px solid var(--border); transition: all 0.35s;
+  position: relative; overflow: hidden;
+}
+.skill-card::after {
+  content: ''; position: absolute; left: 0; bottom: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--rose-2));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+}
+.skill-card:hover { transform: translateY(-7px); box-shadow: 0 20px 60px rgba(193,29,57,0.12); border-color: var(--rose-3); }
+.skill-card:hover::after { transform: scaleX(1); }
+.skill-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.skill-desc { font-size: 0.82rem; line-height: 1.7; color: var(--ink-3); margin-bottom: 18px; }
+.skill-bar { height: 5px; background: var(--cream-2); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+.skill-fill {
+  height: 100%; background: linear-gradient(90deg, var(--rose), var(--rose-2));
+  border-radius: 3px; width: 0;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.skill-pct { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--rose); font-weight: 700; }
+
+/* ── PORTFOLIO ── */
+#portfolio { background: white; }
+.github-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--ink); color: white;
+  padding: 12px 26px; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; margin-bottom: 48px; transition: all 0.3s;
+}
+.github-cta:hover { background: var(--rose); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(193,29,57,0.35); }
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proj-card {
+  background: white; border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--border); transition: all 0.35s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-color: var(--rose-3); }
+.proj-thumb { width: 100%; height: 220px; overflow: hidden; background: var(--rose-pale); }
+.proj-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  display: block; transition: transform 0.4s;
+}
+.proj-card:hover .proj-thumb img { transform: scale(1.05); }
+.proj-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.proj-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.proj-body p { font-size: 0.85rem; line-height: 1.7; color: var(--ink-3); margin-bottom: 14px; }
+.tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tech-pill {
+  font-size: 0.75rem; font-weight: 500; padding: 5px 14px;
+  background: var(--cream); color: var(--ink-2);
+  border: 1px solid var(--border); border-radius: 50px;
+}
+.proj-links { display: flex; gap: 9px; margin-top: auto; }
+.pl {
+  flex: 1; text-align: center; padding: 9px 12px; border-radius: 10px;
+  font-size: 0.78rem; font-weight: 600; text-decoration: none;
+  transition: all 0.25s; display: block;
+}
+.pl-gh { background: var(--ink); color: white; }
+.pl-gh:hover { background: var(--rose); }
+.pl-dm { background: var(--rose-pale); color: var(--rose); border: 1px solid var(--rose-3); }
+.pl-dm:hover { background: var(--rose); color: white; }
+
+/* ── CERTIFICATES ── */
+#certificates { background: var(--cream); }
+.certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.cert-card {
+  background: white; border-radius: 22px; overflow: hidden;
+  border: 1px solid var(--border); transition: all 0.35s;
+}
+.cert-card:hover { transform: translateY(-7px); box-shadow: 0 20px 55px rgba(193,29,57,0.12); border-color: var(--rose-3); }
+.cert-thumb {
+  background: white; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative; aspect-ratio: 4/3;
+}
+.cert-thumb img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; padding: 8px; }
+.cert-card:hover .cert-thumb img { transform: scale(1.06); }
+.cert-body { padding: 20px; }
+.cert-from {
+  font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--rose);
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px;
+}
+.cert-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+.cert-yr { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--ink-3); }
+
+/* ── CONTACT ── */
+#contact { background: white; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+.contact-intro h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+.contact-intro p { font-size: 0.95rem; line-height: 1.85; color: var(--ink-3); margin-bottom: 36px; }
+.socials-list { display: flex; flex-direction: column; gap: 12px; }
+.soc-card { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--cream); border-radius: 16px; text-decoration: none; border: 1px solid var(--border); transition: all 0.3s; }
+.soc-card:hover { background: var(--rose-pale); border-color: var(--rose-3); transform: translateX(8px); }
+.soc-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; color: white; }
+.soc-label { font-size: 0.88rem; font-weight: 600; color: var(--ink); display: block; }
+.soc-handle { font-size: 0.78rem; color: var(--ink-3); }
+.soc-arr { margin-left: auto; color: var(--ink-3); transition: transform 0.25s, color 0.25s; }
+.soc-card:hover .soc-arr { transform: translateX(4px); color: var(--rose); }
+.contact-form { background: var(--cream); border-radius: 26px; padding: 38px; }
+.contact-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.76rem; font-weight: 600; color: var(--ink-2); letter-spacing: 0.04em; margin-bottom: 8px; }
+.form-group input, .form-group textarea { width: 100%; padding: 13px 17px; background: white; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; color: var(--ink); transition: border-color 0.25s; resize: none; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--rose); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-3); }
+.btn-send { width: 100%; padding: 14px; background: var(--rose); color: white; border: none; border-radius: 12px; font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 24px rgba(193,29,57,0.32); }
+.btn-send:hover { background: #a0162f; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(193,29,57,0.42); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .skills-grid { grid-template-columns: repeat(2,1fr); }
+  .projects-grid { grid-template-columns: repeat(2,1fr); }
+  .certs-grid { grid-template-columns: repeat(2,1fr); }
+}
 @media (max-width: 900px) {
   #home { grid-template-columns: 1fr; text-align: center; padding: 110px 28px 60px; gap: 48px; }
   .hero-right { display: none; }
-  .hero-stats { justify-content: center; }
   .hero-btns { justify-content: center; }
   .hero-desc { margin: 0 auto 36px; }
   .hero-tag { justify-content: center; }
+  .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <nav id="navbar">
-  <a href="index.html" class="logo">FAS</a>
+  <a href="#home" class="logo">FAS<em>.</em></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="profil.html">Tentang</a></li>
-    <li><a href="skills.html">Skill</a></li>
-    <li><a href="portofolio.html">Proyek</a></li>
-    <li><a href="sertifikat.html">Sertifikat</a></li>
-    <li><a href="contact.html">Kontak</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#skills">Skill</a></li>
+    <li><a href="#portfolio">Proyek</a></li>
+    <li><a href="#certificates">Sertifikat</a></li>
+    <li><a href="#contact">Kontak</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="profil.html" onclick="closeMenu()">Tentang</a>
-  <a href="skills.html" onclick="closeMenu()">Skill</a>
-  <a href="portofolio.html" onclick="closeMenu()">Proyek</a>
-  <a href="sertifikat.html" onclick="closeMenu()">Sertifikat</a>
-  <a href="contact.html" onclick="closeMenu()">Kontak</a>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">Tentang</a>
+  <a href="#skills" onclick="closeMenu()">Skill</a>
+  <a href="#portfolio" onclick="closeMenu()">Proyek</a>
+  <a href="#certificates" onclick="closeMenu()">Sertifikat</a>
+  <a href="#contact" onclick="closeMenu()">Kontak</a>
 </div>
 
+<!-- ══════════ HOME ══════════ -->
 <section id="home">
   <div class="hero-left">
     <div class="hero-tag">Open to Opportunities</div>
     <h1 class="hero-name">Fara <em>Ayu</em><br>Sudibyo</h1>
     <p class="hero-desc">
-      Saya merupakan siswa <strong>Software Developer</strong> di SMK Wikrama Bogor yang memiliki minat besar di bidang teknologi informasi. Saya senang mempelajari cara kerja aplikasi serta proses pembuatan sistem digital. 
+      Saya merupakan siswa <strong>Software Developer</strong> di SMK Wikrama Bogor yang memiliki minat besar di bidang teknologi informasi. Saya senang mempelajari cara kerja aplikasi serta proses pembuatan sistem digital.
     </p>
-      <a href="portofolio.html" class="btn-solid">Lihat Proyek</a>
-      <a href="contact.html" class="btn-ghost">Hubungi Saya</a>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-solid">Lihat Proyek</a>
+      <a href="#contact" class="btn-ghost">Hubungi Saya</a>
     </div>
   </div>
   <div class="hero-right">
@@ -122,14 +254,388 @@
   </div>
 </section>
 
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="sec-eyebrow reveal">Tentang Saya</div>
+  <h2 class="sec-heading reveal">Kenalan, Yuk!</h2>
+  <div class="about-content reveal" style="transition-delay:0.1s">
+    <p>Hai! Saya <strong>Fara Ayu Sudibyo</strong>, siswa jurusan <strong>Pengembangan Perangkat Lunak</strong> di SMK Wikrama Bogor. Sejak SMP hingga SMK, saya aktif dalam organisasi dan pernah dipercaya sebagai Ketua OSIS serta Ketua Pramuka. Pengalaman tersebut membentuk saya menjadi pribadi yang disiplin, bertanggung jawab, serta memiliki jiwa kepemimpinan.</p>
+    <p>Selain itu, saya terbiasa bekerja sama dalam tim, memiliki kemampuan komunikasi yang baik, dan mampu beradaptasi dengan berbagai situasi. Saya juga memiliki semangat belajar yang tinggi dan terus mengembangkan kemampuan di bidang teknologi, khususnya pemrograman dan pengembangan perangkat lunak.</p>
+    <h3 class="edu-title">Riwayat Pendidikan</h3>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+        <div class="edu-body">
+          <h4>SDN Megamendung 01</h4>
+          <p>Sekolah Dasar · Megamendung, Kab. Bogor</p>
+          <div class="edu-year">2015 – 2021</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+        <div class="edu-body">
+          <h4>SMPN 1 Cisarua</h4>
+          <p>Sekolah Menengah Pertama · Cisarua, Kab. Bogor</p>
+          <div class="edu-year">2021 – 2024</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot-col"><div class="edu-dot"></div><div class="edu-line"></div></div>
+        <div class="edu-body">
+          <h4>SMK Wikrama Bogor</h4>
+          <p>Pengembangan Perangkat Lunak dan Gim (PPLG)</p>
+          <div class="edu-year">2024 – Sekarang</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills">
+  <div class="sec-eyebrow reveal">Keahlian</div>
+  <h2 class="sec-heading reveal">Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal" style="transition-delay:0s">
+      <div class="skill-icon"><i class="fa-brands fa-html5" style="color:#e34c26"></i></div>
+      <div class="skill-name">HTML</div>
+      <div class="skill-desc">Struktur halaman web yang semantis, accessible, dan SEO-friendly menggunakan HTML5.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+      <div class="skill-pct">85%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.08s">
+      <div class="skill-icon"><i class="fa-brands fa-css3-alt" style="color:#264de4"></i></div>
+      <div class="skill-name">CSS</div>
+      <div class="skill-desc">Tampilan responsif, animasi halus, Flexbox & Grid untuk layout modern.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+      <div class="skill-pct">80%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.16s">
+      <div class="skill-icon"><i class="fa-brands fa-js" style="color:#f0db4f"></i></div>
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-desc">Logika interaktif, DOM manipulation, dan pengembangan web dinamis.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="50"></div></div>
+      <div class="skill-pct">50%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.24s">
+      <div class="skill-icon"><i class="fa-brands fa-react" style="color:#61dafb"></i></div>
+      <div class="skill-name">React JS</div>
+      <div class="skill-desc">Membangun UI berbasis komponen yang efisien dengan hooks dan state management.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+      <div class="skill-pct">70%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.32s">
+      <div class="skill-icon"><i class="fa-brands fa-php" style="color:#777bb4"></i></div>
+      <div class="skill-name">PHP</div>
+      <div class="skill-desc">Pemrograman server-side untuk aplikasi web dinamis dan pengelolaan database.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="50"></div></div>
+      <div class="skill-pct">50%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.4s">
+      <div class="skill-icon"><i class="fa-brands fa-laravel" style="color:#ff2d20"></i></div>
+      <div class="skill-name">Laravel</div>
+      <div class="skill-desc">Framework PHP modern dengan routing, Eloquent ORM, dan Blade templating.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+      <div class="skill-pct">80%</div>
+    </div>
+    <div class="skill-card reveal" style="transition-delay:0.48s">
+      <div class="skill-icon">
+        <svg width="35" height="35" viewBox="0 0 48 48" fill="none">
+          <path d="M13 28L28 13H48L33 28L48 43H28L13 28Z" fill="#54C5F8"/>
+          <path d="M28 43L33 28L48 43H28Z" fill="#01579B"/>
+          <path d="M13 28L28 43H8L13 28Z" fill="#29B6F6"/>
+        </svg>
+      </div>
+      <div class="skill-name">Flutter</div>
+      <div class="skill-desc">Framework open-source oleh Google untuk membangun aplikasi mobile cross-platform.</div>
+      <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+      <div class="skill-pct">70%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PORTFOLIO ══════════ -->
+<section id="portfolio">
+  <div class="sec-eyebrow reveal">Karya Saya</div>
+  <h2 class="sec-heading reveal">Proyek Pilihan</h2>
+  <a href="https://github.com/FaraAyuSudibyo" target="_blank" class="github-cta reveal">
+    <i class="fa-brands fa-github"></i>
+    github.com/FaraAyuSudibyo
+  </a>
+  <div class="projects-grid">
+
+    <div class="proj-card reveal" style="transition-delay:0s">
+      <div class="proj-thumb"><img src="images/buku.png" alt="Book Website" /></div>
+      <div class="proj-body">
+        <h3>BOOK Website</h3>
+        <p>Website penjualan buku berbasis React dengan katalog dan keranjang belanja.</p>
+        <div class="tech-row"><span class="tech-pill">React</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/book_react.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.08s">
+      <div class="proj-thumb"><img src="images/figma2.png" alt="Perpustaka Digital" /></div>
+      <div class="proj-body">
+        <h3>Perpustaka Digital</h3>
+        <p>Desain UI perpustakaan sekolah digital dengan tampilan modern dan fitur lengkap.</p>
+        <div class="tech-row"><span class="tech-pill">Figma</span></div>
+        <div class="proj-links">
+          <a href="https://www.figma.com/design/BLhqUTYvhGPyc6g2o9Cyhe/perpus?node-id=0-1&t=MZ8vOlE05fpRBtEZ-1" target="_blank" class="pl pl-gh">Figma</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.16s">
+      <div class="proj-thumb"><img src="images/gaji.png" alt="Penggajian" /></div>
+      <div class="proj-body">
+        <h3>Penggajian</h3>
+        <p>Sistem penggajian karyawan berbasis web, mempercepat proses administrasi secara digital.</p>
+        <div class="tech-row"><span class="tech-pill">Laravel</span><span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/PENGGAJIAN.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.24s">
+      <div class="proj-thumb"><img src="images/figma1.png" alt="UI SarFaraz Feed" /></div>
+      <div class="proj-body">
+        <h3>UI SarFaraz Feed</h3>
+        <p>Desain UI aplikasi pemesanan makanan mobile dengan tampilan modern menggunakan Figma.</p>
+        <div class="tech-row"><span class="tech-pill">Figma</span></div>
+        <div class="proj-links">
+          <a href="https://www.figma.com/design/xM8px6GWxVkhxCpNpwPSFA/Untitled?node-id=0-1&t=5j7cyTuDJXWKlyXO-1" target="_blank" class="pl pl-gh">Figma</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.32s">
+      <div class="proj-thumb"><img src="images/tixid.png" alt="TIXID" /></div>
+      <div class="proj-body">
+        <h3>TIXID</h3>
+        <p>Platform pemesanan tiket bioskop online dengan fitur pilih kursi dan pembayaran.</p>
+        <div class="tech-row"><span class="tech-pill">Laravel</span><span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/TIXID.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.40s">
+      <div class="proj-thumb"><img src="images/platzi.png" alt="Platzi Fake Store" /></div>
+      <div class="proj-body">
+        <h3>Platzi Fake Store</h3>
+        <p>Ecommerce berbasis React dengan kategori produk, keranjang belanja, dan autentikasi user.</p>
+        <div class="tech-row"><span class="tech-pill">React</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/platzi.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.48s">
+      <div class="proj-thumb"><img src="images/todo-app.png" alt="Todo App" /></div>
+      <div class="proj-body">
+        <h3>Todo App</h3>
+        <p>Aplikasi manajemen tugas dengan board TODO, DOING, DONE dan form tambah pekerjaan.</p>
+        <div class="tech-row"><span class="tech-pill">React</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.56s">
+      <div class="proj-thumb"><img src="images/profil_flut.png" alt="Profile Flutter" /></div>
+      <div class="proj-body">
+        <h3>Profile Flutter</h3>
+        <p>Halaman profil pribadi yang dibangun menggunakan Flutter dengan desain minimalis.</p>
+        <div class="tech-row"><span class="tech-pill">Flutter</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/profile-flutter.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" style="transition-delay:0.64s">
+      <div class="proj-thumb"><img src="images/court booking.png" alt="Court Booking" /></div>
+      <div class="proj-body">
+        <h3>Court Booking</h3>
+        <p>Aplikasi pemesanan lapangan olahraga secara online dengan Flutter.</p>
+        <div class="tech-row"><span class="tech-pill">Flutter</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/FaraAyuSudibyo/court_booking.git" target="_blank" class="pl pl-gh"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CERTIFICATES ══════════ -->
+<section id="certificates">
+  <div class="sec-eyebrow reveal">Pencapaian</div>
+  <h2 class="sec-heading reveal">Sertifikat & Penghargaan</h2>
+  <div class="certs-grid">
+
+    <div class="cert-card reveal" style="transition-delay:0s">
+      <div class="cert-thumb"><img src="images/dicoding (1).jpeg" alt="Dicoding Web" /></div>
+      <div class="cert-body">
+        <div class="cert-from">Dicoding Indonesia</div>
+        <h3>Belajar Dasar Pemrograman Web</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.08s">
+      <div class="cert-thumb"><img src="images/dicoding 2.jpeg" alt="Dicoding JS" /></div>
+      <div class="cert-body">
+        <div class="cert-from">Dicoding Indonesia</div>
+        <h3>Belajar Dasar Pemrograman JavaScript</h3>
+        <div class="cert-yr">2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.16s">
+      <div class="cert-thumb"><img src="images/coding adv .jpeg" alt="Coding Adventure 1" /></div>
+      <div class="cert-body">
+        <div class="cert-from">Sentra Bisnis Wikrama</div>
+        <h3>Coding Adventure Batch 1</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.24s">
+      <div class="cert-thumb"><img src="images/coding adv 2.jpeg" alt="Coding Adventure 2" /></div>
+      <div class="cert-body">
+        <div class="cert-from">Sentra Bisnis Wikrama</div>
+        <h3>Coding Adventure Batch 2</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.32s">
+      <div class="cert-thumb"><img src="images/k3.jpeg" alt="K3" /></div>
+      <div class="cert-body">
+        <div class="cert-from">ILO · Kemnaker RI</div>
+        <h3>E-Learning Keselamatan & Kesehatan Kerja</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.40s">
+      <div class="cert-thumb"><img src="images/WhatsApp Image 2026-05-06 at 09.38.43.jpeg" alt="IGDX" /></div>
+      <div class="cert-body">
+        <div class="cert-from">IGDX Career · Kominfo</div>
+        <h3>Career Guidance for Aspiring Game Developer</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.48s">
+      <div class="cert-thumb"><img src="images/ldk.jpeg" alt="LDK" /></div>
+      <div class="cert-body">
+        <div class="cert-from">SMK Wikrama Bogor</div>
+        <h3>Latihan Dasar Kepemimpinan (LDK)</h3>
+        <div class="cert-yr">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:0.56s">
+      <div class="cert-thumb"><img src="images/cv.jpeg" alt="Level Up CV" /></div>
+      <div class="cert-body">
+        <div class="cert-from">Sentra Bisnis Wikrama</div>
+        <h3>Level Up Your CV: Building Your Future</h3>
+        <div class="cert-yr">2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="sec-eyebrow reveal">Kontak</div>
+  <h2 class="sec-heading reveal">Ayo Terhubung!</h2>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="contact-intro">
+        <h3>Tertarik berkolaborasi?</h3>
+        <p>Saya selalu terbuka untuk peluang baru, proyek menarik, magang, atau sekadar ngobrol tentang teknologi. Jangan ragu untuk menghubungi saya!</p>
+      </div>
+      <div class="socials-list">
+        <a href="https://www.instagram.com/farasudibyo_" target="_blank" class="soc-card">
+          <div class="soc-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><i class="fa-brands fa-instagram"></i></div>
+          <div><span class="soc-label">Instagram</span><span class="soc-handle">@farasudibyo_</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="https://wa.me/+6285771093208" target="_blank" class="soc-card">
+          <div class="soc-icon" style="background:#25d366"><i class="fa-brands fa-whatsapp"></i></div>
+          <div><span class="soc-label">WhatsApp</span><span class="soc-handle">+62 857-7109-3208</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="mailto:faraayusudibyo@gmail.com" class="soc-card">
+          <div class="soc-icon" style="background:rgb(130,10,10)"><i class="fa-solid fa-envelope"></i></div>
+          <div><span class="soc-label">Email</span><span class="soc-handle">faraayusudibyo@gmail.com</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/FaraAyuSudibyo" target="_blank" class="soc-card">
+          <div class="soc-icon" style="background:#0d1117"><i class="fa-brands fa-github"></i></div>
+          <div><span class="soc-label">GitHub</span><span class="soc-handle">github.com/FaraAyuSudibyo</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="https://www.linkedin.com/in/faraayu-sudibyo-90168b37b" target="_blank" class="soc-card">
+          <div class="soc-icon" style="background:#0077b5"><i class="fa-brands fa-linkedin"></i></div>
+          <div><span class="soc-label">LinkedIn</span><span class="soc-handle">Fara Ayu Sudibyo</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="https://maps.google.com/?q=Megamendung,Bogor" target="_blank" class="soc-card">
+          <div class="soc-icon" style="background:#ea4335"><i class="fa-solid fa-location-dot"></i></div>
+          <div><span class="soc-label">Lokasi</span><span class="soc-handle">Megamendung, Kab. Bogor</span></div>
+          <span class="soc-arr"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="contact-form">
+        <h3>Kirim Pesan</h3>
+        <form action="https://formspree.io/f/xannngwb" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" name="name" placeholder="Nama kamu..." required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="email@contoh.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subjek</label>
+            <input type="text" name="subject" placeholder="Tentang apa?" />
+          </div>
+          <div class="form-group">
+            <label>Pesan</label>
+            <textarea name="message" rows="5" placeholder="Tuliskan pesanmu di sini..."></textarea>
+          </div>
+          <button type="submit" class="btn-send">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-logo">FAS.</div>
-  <p>© 2026 Fara Ayu Sudibyo · Bogor, Indonesia</p>
+  <p>© 2026 Fara Ayu Sudibyo · Made in Bogor, Indonesia</p>
   <div class="footer-links">
-    <a href="profil.html">Tentang</a>
-    <a href="portofolio.html">Proyek</a>
-    <a href="contact.html">Kontak</a>
-    <a href="https://github.com/farasudibyo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="#about">Tentang</a>
+    <a href="#portfolio">Proyek</a>
+    <a href="#contact">Kontak</a>
+    <a href="https://github.com/FaraAyuSudibyo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
   </div>
 </footer>
 

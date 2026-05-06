@@ -6,14 +6,27 @@ if (navbar) {
   });
 }
 
-/* ── ACTIVE NAV LINK (multi-page: highlight by current filename) ── */
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
-  const href = a.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-    a.classList.add('active');
-  }
-});
+/* ── ACTIVE NAV LINK (single page: highlight by scroll position) ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+
+function updateActiveLink() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) {
+      a.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll', updateActiveLink);
+updateActiveLink();
 
 /* ── HAMBURGER / MOBILE MENU ── */
 function toggleMenu() {
@@ -40,7 +53,7 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObs.observe(el));
 }
 
-/* ── SKILL BARS (hanya aktif di skills.html) ── */
+/* ── SKILL BARS ── */
 const skillSection = document.getElementById('skills');
 if (skillSection) {
   const skillObs = new IntersectionObserver(entries => {
